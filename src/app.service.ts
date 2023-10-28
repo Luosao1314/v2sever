@@ -23,4 +23,11 @@ export class AppService {
     }
     return this.v2data;
   }
+  getIp(req: any): string {
+    let ip = req.ip;
+    if (ip.indexOf('::ffff:') !== -1) {
+      ip = ip.substring(7);
+    }
+    return ip;
+  }
 }
